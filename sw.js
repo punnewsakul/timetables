@@ -1,6 +1,6 @@
 // Keeps the timetable working with no internet.
 // When you change the timetable, bump VERSION so phones fetch the new files.
-const VERSION = "tt-v1";
+const VERSION = "tt-v2";
 const APP_FILES = [
   "./",
   "./index.html",

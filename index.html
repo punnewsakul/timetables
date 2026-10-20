@@ -27,7 +27,7 @@
   --soc-bg:#182C41; --soc-ink:#AACDF1;
   --art-bg:#3B1B2C; --art-ink:#F4AACF;
   --act-bg:#212932; --act-ink:#BEC8D3;
-  --lunch-bg:#1D242D;
+  --lunch-bg:#1D242D; --chip:#0E1218;
   --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
   --f-body:"Lexend",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -36,8 +36,9 @@
 
 *{box-sizing:border-box}
 html{background:#10141A}
-body{background:var(--bg);-webkit-tap-highlight-color:transparent;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;padding-block:20px 48px}
+body{background:var(--bg);-webkit-tap-highlight-color:transparent;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.45;padding-block:20px 48px}
 .app{max-width:1180px;margin:0 auto;display:grid;gap:22px}
+.app>*{min-width:0}
 .app[data-kid="fire"]{--accent:var(--fire)}
 .app[data-kid="water"]{--accent:var(--water)}
 button{font-family:inherit}
@@ -46,47 +47,47 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 /* Header */
 .top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
 .titles{min-width:0}
-.eyebrow{margin:0;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
 h1{margin:6px 0 0;font-family:var(--f-display);font-weight:800;font-size:clamp(30px,5.4vw,46px);line-height:1.02;letter-spacing:-.015em;text-wrap:balance;display:flex;align-items:center;gap:10px}
 h1 svg{width:.85em;height:.85em;fill:var(--accent);flex:none}
 h1 .kid{color:var(--accent)}
-.sub{margin:8px 0 0;color:var(--muted);font-size:14px}
+.sub{margin:8px 0 0;color:var(--muted);font-size:16px}
 .switch{display:inline-flex;padding:4px;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
-.switch button{appearance:none;border:0;background:transparent;color:var(--ink);font-weight:600;font-size:14px;line-height:1;padding:10px 16px 10px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.switch button{appearance:none;border:0;background:transparent;color:var(--ink);font-weight:600;font-size:16px;line-height:1;padding:12px 18px 12px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
 .switch button[data-kid="fire"]{--c:var(--fire)}
 .switch button[data-kid="water"]{--c:var(--water)}
-.switch svg{width:18px;height:18px;fill:var(--c)}
+.switch svg{width:20px;height:20px;fill:var(--c)}
 .switch button[aria-selected="true"]{background:var(--c);color:var(--on-accent)}
 .switch button[aria-selected="true"] svg{fill:var(--on-accent)}
-.switch .rm{font-family:var(--f-mono);font-weight:500;font-size:13px}
+.switch .rm{font-family:var(--f-mono);font-weight:500;font-size:15px}
 
 /* Now / next strip */
-.today{display:grid;grid-template-columns:minmax(150px,auto) minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch}
+.today{display:grid;grid-template-columns:minmax(170px,auto) minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch}
 .today-date{display:flex;flex-direction:column;justify-content:center;padding-right:8px}
-.today-date .dn{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.1}
-.today-date .tm{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:4px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 16px;min-width:0}
-.card .lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent)}
-.card .ttl{font-family:var(--f-display);font-weight:600;font-size:20px;line-height:1.2;margin-top:3px}
-.card .meta{font-size:13px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.today-date .dn{font-family:var(--f-display);font-weight:600;font-size:25px;line-height:1.1}
+.today-date .tm{font-family:var(--f-mono);font-size:15px;color:var(--muted);margin-top:4px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 18px;min-width:0;display:flex;flex-direction:column}
+.card .lab{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.card .ttl{font-family:var(--f-display);font-weight:600;font-size:25px;line-height:1.2;margin-top:4px}
+.card .meta{font-size:16px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
 @media (max-width:760px){.today{grid-template-columns:1fr 1fr}.today-date{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:10px}}
 @media (max-width:440px){.today{grid-template-columns:1fr}}
 
 /* Week grid */
-.week{display:grid;grid-template-columns:78px repeat(5,minmax(0,1fr));grid-template-rows:auto repeat(4,minmax(66px,auto)) 42px repeat(5,minmax(66px,auto));gap:6px}
-.dayhead{font-family:var(--f-display);font-weight:600;font-size:16px;padding:8px 11px;border-radius:10px;align-self:end}
+.week{display:grid;grid-template-columns:86px repeat(5,minmax(0,1fr));grid-template-rows:auto repeat(4,minmax(84px,auto)) 48px repeat(5,minmax(84px,auto));gap:6px}
+.dayhead{font-family:var(--f-display);font-weight:600;font-size:19px;padding:9px 12px;border-radius:10px;align-self:end}
 .dayhead.is-today{background:var(--accent);color:var(--on-accent)}
 .tcell{display:flex;flex-direction:column;padding:6px 4px 0 0;font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
-.tcell .pn{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
-.tcell b{font-size:14px;font-weight:600;line-height:1.2}
-.tcell span{font-size:12px;color:var(--muted)}
+.tcell .pn{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.tcell b{font-size:16px;font-weight:600;line-height:1.2}
+.tcell span{font-size:14px;color:var(--muted)}
 .tcell.lunch{justify-content:center;padding-top:0;border-top:0}
 
-.blk{border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:3px;min-width:0;background:var(--b);color:var(--i);position:relative}
-.blk .nm{font-weight:600;font-size:14.5px;line-height:1.25}
-.blk .rm{font-family:var(--f-mono);font-size:12px;font-weight:500}
-.blk .tc{font-size:12px;line-height:1.3;opacity:.88}
-.blk .when{font-size:12px;font-variant-numeric:tabular-nums;opacity:.88}
+.blk{border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--b);color:var(--i);position:relative}
+.blk .nm{font-weight:600;font-size:17.5px;line-height:1.25}
+.blk .rm{font-family:var(--f-mono);font-size:14px;font-weight:500}
+.blk .tc{font-size:14.5px;line-height:1.3;opacity:.88}
+.blk .when{font-size:14px;font-variant-numeric:tabular-nums;opacity:.88}
 .fam-math{--b:var(--math-bg);--i:var(--math-ink)}
 .fam-sci{--b:var(--sci-bg);--i:var(--sci-ink)}
 .fam-lang{--b:var(--lang-bg);--i:var(--lang-ink)}
@@ -95,11 +96,11 @@ h1 .kid{color:var(--accent)}
 .fam-art{--b:var(--art-bg);--i:var(--art-ink)}
 .fam-act{--b:var(--act-bg);--i:var(--act-ink)}
 .fam-free{--b:transparent;--i:var(--muted);border:1.5px dashed var(--line)}
-.fam-lunch{--b:var(--lunch-bg);--i:var(--muted);flex-direction:row;align-items:center;justify-content:center;gap:10px;font-size:13px}
-.fam-lunch .nm{font-size:13px}
+.fam-lunch{--b:var(--lunch-bg);--i:var(--muted);flex-direction:row;align-items:center;justify-content:center;gap:12px;font-size:15px}
+.fam-lunch .nm{font-size:15px}
 .blk.is-now{outline:2.5px solid var(--accent);outline-offset:2px}
-.blk.is-now .nm{padding-right:40px}
-.blk.is-now::after{content:"Now";position:absolute;top:8px;right:8px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:2px 7px;border-radius:999px}
+.blk.is-now .nm{padding-right:50px}
+.blk.is-now::after{content:"Now";position:absolute;top:9px;right:9px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:2px 7px;border-radius:999px}
 .fam-lunch.is-now .nm{padding-right:0}
 .fam-lunch.is-now::after{top:50%;transform:translateY(-50%)}
 
@@ -110,32 +111,41 @@ h1 .kid{color:var(--accent)}
   .days{display:flex;gap:6px}
   .daylist{display:grid;gap:8px}
 }
-.days button{flex:1 1 0;min-width:0;appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;font-size:14px;padding:10px 4px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
-.days button .t{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);min-height:1em}
+.days button{flex:1 1 0;min-width:0;appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;font-size:17px;padding:12px 4px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
+.days button .t{font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);min-height:1em}
 .days button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .days button[aria-selected="true"] .t{color:var(--on-accent)}
-.row{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px}
+.row{display:grid;grid-template-columns:66px minmax(0,1fr);gap:10px}
 .row .tm{font-variant-numeric:tabular-nums;padding-top:8px}
-.row .tm b{display:block;font-size:14px;font-weight:600;line-height:1.2}
-.row .tm span{display:block;font-size:12px;color:var(--muted)}
-.row .tm .pn{font-family:var(--f-mono);font-size:11px;margin-top:2px}
-.row .blk{min-height:calc(var(--s,1) * 44px)}
+.row .tm b{display:block;font-size:17px;font-weight:600;line-height:1.2}
+.row .tm span{display:block;font-size:14px;color:var(--muted)}
+.row .tm .pn{font-family:var(--f-mono);font-size:13px;margin-top:2px}
+.row .blk{min-height:calc(var(--s,1) * 52px)}
 
 /* Subjects */
-.subjects h2{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0 0 10px}
+.subjects h2{font-family:var(--f-display);font-weight:600;font-size:25px;margin:0 0 10px}
 .tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
-table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
-th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:12px 14px;border-bottom:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:680px;font-size:16px}
+th{text-align:left;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:12px 14px;border-bottom:1px solid var(--line)}
 td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
 .sw{display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--b);box-shadow:inset 0 0 0 1.5px var(--i);vertical-align:-1px;margin-right:8px}
 td .sn{font-weight:600}
-td .full{display:block;color:var(--muted);font-size:12.5px;margin-left:20px}
-td.code,td.room{font-family:var(--f-mono);font-size:12.5px;font-weight:500}
-.notes{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:4px;max-width:75ch}
+td .full{display:block;color:var(--muted);font-size:14px;margin-left:20px}
+td.code,td.room{font-family:var(--f-mono);font-size:14px;font-weight:500}
+.with{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:3px;max-width:100%;font-size:13px;font-weight:600;line-height:1.2;padding:5px 9px;border-radius:999px;background:var(--chip);color:var(--ink);border:1.5px solid var(--line)}
+.with svg{width:13px;height:13px;flex:none;fill:currentColor}
+.with.g{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.with.r{border-color:var(--ink)}
+.with.m{border-style:dashed;border-color:var(--accent)}
+.with.a,.with.c{color:var(--muted)}
+.card .with{margin-top:8px}
+.key{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:15px;color:var(--muted)}
+.key .with{margin-top:0}
+.notes{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px;max-width:75ch}
 </style>
 
-<div class="app" id="app" data-kid="fire">
+<div class="app" id="app" data-kid="water">
   <header class="top">
     <div class="titles">
       <p class="eyebrow">M.4 timetable · Semester 2/2026</p>
@@ -143,16 +153,18 @@ td.code,td.room{font-family:var(--f-mono);font-size:12.5px;font-weight:500}
       <p class="sub" id="sub"></p>
     </div>
     <div class="switch" role="tablist" aria-label="Choose class">
-      <button role="tab" id="tab-fire" data-kid="fire" aria-selected="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.3 2c.6 3.3 4.7 5.6 4.7 11a5 5 0 0 1-10 0c0-2.6 1.3-4.3 2.7-5.5.1 1.8.9 2.9 2 3.4C11 8.3 11.3 5 12.3 2z"/></svg>
-        <span><span class="rm">4/3</span> Fire</span>
-      </button>
-      <button role="tab" id="tab-water" data-kid="water" aria-selected="false">
+      <button role="tab" id="tab-water" data-kid="water" aria-selected="true">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C9 7 6 10.4 6 14.2a6 6 0 0 0 12 0C18 10.4 15 7 12 2.5z"/></svg>
         <span><span class="rm">4/2</span> Water</span>
       </button>
+      <button role="tab" id="tab-fire" data-kid="fire" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.3 2c.6 3.3 4.7 5.6 4.7 11a5 5 0 0 1-10 0c0-2.6 1.3-4.3 2.7-5.5.1 1.8.9 2.9 2 3.4C11 8.3 11.3 5 12.3 2z"/></svg>
+        <span><span class="rm">4/3</span> Fire</span>
+      </button>
     </div>
   </header>
+
+  <div class="key" id="key" aria-label="Who he studies with"></div>
 
   <section class="today" aria-live="polite">
     <div class="today-date"><span class="dn" id="dn"></span><span class="tm" id="clock"></span></div>
@@ -173,6 +185,7 @@ td.code,td.room{font-family:var(--f-mono);font-size:12.5px;font-weight:500}
       <tbody id="subj"></tbody>
     </table></div>
     <ul class="notes">
+      <li>The coloured tag on each class shows who he studies with: his element group (students from every M.4 room), his own class, or two classes taught together and split by element group (for example, Earth and Water students from 4/1 and 4/2 do Biology while Air and Fire students do another subject).</li>
       <li>Lunch is 11:35–12:35 every day.</li>
       <li>Most science and maths subjects are co-taught by a team. The teacher shown is the teacher in charge, so another teacher from the team may take some lessons.</li>
       <li>Civics has "New Teacher" on the official list (not named yet). Intensive English has no teacher listed.</li>
@@ -199,7 +212,7 @@ const S={
   TH30102:{short:"Thai Literature",full:"Thai Literature Appreciation",teacher:"Rat",fam:"lang"},
   IENG:{short:"Intensive English",full:"Intensive English",teacher:"Not listed",fam:"lang",code:"—"},
   OT30101:{short:"Engineering",full:"Basic Engineering",teacher:"Nook",fam:"eng"},
-  SO30102:{short:"Civics",full:"Foundation and Philosophy of Civic Responsibilities",teacher:"New Teacher (not named yet)",fam:"soc"},
+  SO30102:{short:"Civics",full:"Foundation and Philosophy of Civic Responsibilities",teacher:"New teacher (not named yet)",fam:"soc"},
   HP30102:{short:"PE & Life Quality",full:"Supporting Life Quality and Life Development",teacher:"Vid",fam:"art"},
   AR30102:{short:"Thai Performing Arts",full:"Thai Performing Arts",teacher:"Seenam",fam:"art"}
 };
@@ -213,20 +226,23 @@ const A={
   NONE:{short:"Free",fam:"free"},
   LUNCH:{short:"Lunch",fam:"lunch"}
 };
+// Each block: [day 0=Mon, first period, number of periods, subject, room, who he studies with]
+// Who-with: "G" = his element group, "R" = his own class, "A" = all of M.4, "C" = club,
+// "M:..." = two classes taught together, split by element, "X:..." = two element groups together.
 const KIDS={
-  fire:{room:"4/3",el:"Fire",group:3,blocks:[
-    [0,1,2,"MA30201","Room 212"],[0,3,2,"EN30102","Room 312"],[0,6,2,"ST30702","AI Room 123"],[0,8,2,"ST30107","Room 243"],[0,10,1,"CLUB",""],
-    [1,1,2,"SO30102","100-Seat Room"],[1,3,2,"EN30202","Room 313"],[1,6,2,"MA30103","Room 212"],[1,8,2,"ST30111","Room 322"],[1,10,1,"STU",""],
-    [2,1,1,"ASM",""],[2,2,1,"HR","Room 222"],[2,3,2,"RES",""],[2,6,4,"RES",""],[2,10,1,"NONE",""],
-    [3,1,2,"TH30102","Room 232"],[3,3,1,"MA30201","Room 212"],[3,4,1,"FREE",""],[3,6,1,"HP30102","Gym OR Room 332"],[3,7,1,"AR30102","Room 103"],[3,8,2,"ST30111","Room 322"],[3,10,1,"CLUB",""],
-    [4,1,2,"ST30102","Room 222"],[4,3,1,"MA30103","Room 212"],[4,4,1,"ST30107","Room 243"],[4,6,3,"OT30101","Room 115"],[4,9,2,"ST30801","Room 222"]
-  ]},
   water:{room:"4/2",el:"Water",group:2,blocks:[
-    [0,1,3,"OT30101","Room 115"],[0,4,1,"IENG","Room 213"],[0,6,2,"MA30103","Room 212"],[0,8,2,"ST30111","Room 322"],[0,10,1,"CLUB",""],
-    [1,1,2,"SO30102","100-Seat Room"],[1,3,2,"MA30201","Room 212"],[1,6,2,"ST30702","AI Room 123"],[1,8,2,"ST30107","Room 243"],[1,10,1,"STU",""],
-    [2,1,1,"ASM",""],[2,2,1,"HR","Room 122"],[2,3,2,"RES",""],[2,6,4,"RES",""],[2,10,1,"NONE",""],
-    [3,1,2,"EN30102","Room 312"],[3,3,2,"EN30202","Room 313"],[3,6,2,"ST30102","Room 222"],[3,8,1,"ST30107","Room 243"],[3,9,1,"HP30102","Gym OR Room 332"],[3,10,1,"CLUB",""],
-    [4,1,1,"AR30102","Room 103"],[4,2,1,"MA30103","Room 212"],[4,3,2,"ST30111","Room 322"],[4,6,2,"TH30102","Room 232"],[4,8,1,"MA30201","Room 212"],[4,9,2,"ST30801","Room 212 / 213 / 222 / 322"]
+    [0,1,3,"OT30101","Room 115","G"],[0,4,1,"IENG","Room 213","G"],[0,6,2,"MA30103","Room 212","R"],[0,8,2,"ST30111","Room 322","M:4/1 + 4/2 · Earth & Water"],[0,10,1,"CLUB","","C"],
+    [1,1,2,"SO30102","100-Seat Room","X:Water + Fire groups"],[1,3,2,"MA30201","Room 212","G"],[1,6,2,"ST30702","AI Room 123","M:4/1 + 4/2 · Earth & Water"],[1,8,2,"ST30107","Room 243","R"],[1,10,1,"STU","","A"],
+    [2,1,1,"ASM","","A"],[2,2,1,"HR","Room 122","R"],[2,3,2,"RES","","A"],[2,6,4,"RES","","A"],[2,10,1,"NONE","",""],
+    [3,1,2,"EN30102","Room 312","G"],[3,3,2,"EN30202","Room 313","G"],[3,6,2,"ST30102","Room 222","M:4/1 + 4/2 · Earth & Water"],[3,8,1,"ST30107","Room 243","R"],[3,9,1,"HP30102","Gym or Room 332","R"],[3,10,1,"CLUB","","C"],
+    [4,1,1,"AR30102","Room 103","R"],[4,2,1,"MA30103","Room 212","R"],[4,3,2,"ST30111","Room 322","M:4/1 + 4/2 · Earth & Water"],[4,6,2,"TH30102","Room 232","G"],[4,8,1,"MA30201","Room 212","G"],[4,9,2,"ST30801","Room 212 / 213 / 222 / 322","A"]
+  ]},
+  fire:{room:"4/3",el:"Fire",group:3,blocks:[
+    [0,1,2,"MA30201","Room 212","G"],[0,3,2,"EN30102","Room 312","G"],[0,6,2,"ST30702","AI Room 123","M:4/3 + 4/4 · Air & Fire"],[0,8,2,"ST30107","Room 243","R"],[0,10,1,"CLUB","","C"],
+    [1,1,2,"SO30102","100-Seat Room","X:Water + Fire groups"],[1,3,2,"EN30202","Room 313","G"],[1,6,2,"MA30103","Room 212","R"],[1,8,2,"ST30111","Room 322","M:4/3 + 4/4 · Air & Fire"],[1,10,1,"STU","","A"],
+    [2,1,1,"ASM","","A"],[2,2,1,"HR","Room 222","R"],[2,3,2,"RES","","A"],[2,6,4,"RES","","A"],[2,10,1,"NONE","",""],
+    [3,1,2,"TH30102","Room 232","G"],[3,3,1,"MA30201","Room 212","G"],[3,4,1,"FREE","",""],[3,6,1,"HP30102","Gym or Room 332","R"],[3,7,1,"AR30102","Room 103","R"],[3,8,2,"ST30111","Room 322","M:4/3 + 4/4 · Air & Fire"],[3,10,1,"CLUB","","C"],
+    [4,1,2,"ST30102","Room 222","M:4/3 + 4/4 · Air & Fire"],[4,3,1,"MA30103","Room 212","R"],[4,4,1,"ST30107","Room 243","R"],[4,6,3,"OT30101","Room 115","G"],[4,9,2,"ST30801","Room 222","A"]
   ]}
 };
 const ICON={
@@ -236,17 +252,32 @@ const ICON={
 
 const fmt=m=>String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
 const info=k=>S[k]||A[k];
+const ICO_GRP='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3.4"/><circle cx="16.5" cy="9" r="2.8"/><path d="M2 19c0-3.4 2.7-6 6-6s6 2.6 6 6zM13.6 19c.2-2.3-.6-4.1-1.9-5.2a5 5 0 0 1 9.8 1.3V19z"/></svg>';
+const ICO_ROOM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11a2 2 0 0 1 2 2v14h2v2H4v-2h1zm2 2v14h9V5zm6 6.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>';
+function withInfo(t){
+  if(!t) return null;
+  const K=KIDS[kid];
+  if(t==="G") return {c:"g",txt:`${K.el} group`,ico:ICON[kid]};
+  if(t==="R") return {c:"r",txt:`Class ${K.room}`,ico:ICO_ROOM};
+  if(t==="A") return {c:"a",txt:"All M.4",ico:ICO_GRP};
+  if(t==="C") return {c:"c",txt:"His own club",ico:ICO_GRP};
+  if(t.startsWith("M:")) return {c:"m",txt:t.slice(2),ico:ICO_GRP};
+  if(t.startsWith("X:")) return {c:"g",txt:t.slice(2),ico:ICON[kid]};
+  return null;
+}
+function withHTML(t){ const w=withInfo(t); return w?`<span class="with ${w.c}">${w.ico}<span>${w.txt}</span></span>`:""; }
+function teacherName(k){
+  const s=S[k]; if(!s||s.teacher==="Not listed") return null;
+  if(s.teacher.startsWith("New teacher")) return s.teacher;
+  return "T. "+s.teacher;
+}
 const pLabel=(p,s)=>s>1?`P${p}–${p+s-1}`:`P${p}`;
 
-let kid="fire", selDay=null;
-try{
-  const h=(location.hash||"").slice(1);
-  if(h==="fire"||h==="water") kid=h;
-  else{const s=localStorage.getItem("tt-kid"); if(s==="fire"||s==="water") kid=s;}
-}catch(e){}
+let kid="water", selDay=null;
+try{ const h=(location.hash||"").slice(1); if(h==="fire"||h==="water") kid=h; }catch(e){}
 
 function items(k,d){
-  const list=KIDS[k].blocks.filter(b=>b[0]===d).map(b=>({d:b[0],p:b[1],s:b[2],k:b[3],r:b[4]}));
+  const list=KIDS[k].blocks.filter(b=>b[0]===d).map(b=>({d:b[0],p:b[1],s:b[2],k:b[3],r:b[4],t:b[5]}));
   list.push({d,p:5,s:1,k:"LUNCH",r:""});
   list.sort((a,b)=>a.p-b.p);
   list.forEach(it=>{it.start=PT[it.p][0]; it.end=PT[it.p+it.s-1][1];});
@@ -264,7 +295,8 @@ function blockHTML(it,withTime){
   if(it.k==="LUNCH"){ return `<div class="nm">Lunch</div><div class="when">11:35–12:35</div>`; }
   if(withTime) h+=`<div class="when">${fmt(it.start)}–${fmt(it.end)}</div>`;
   if(it.r) h+=`<div class="rm">${it.r}</div>`;
-  if(S[it.k] && S[it.k].teacher!=="Not listed") h+=`<div class="tc">${S[it.k].teacher}</div>`;
+  const tn=teacherName(it.k); if(tn) h+=`<div class="tc">${tn}</div>`;
+  h+=withHTML(it.t);
   return h;
 }
 
@@ -287,7 +319,7 @@ function renderWeek(){
   const lunch=add("blk fam-lunch","2 / 7",6,`<div class="nm">Lunch</div><div class="when">11:35–12:35</div>`);
   if(cur&&cur.k==="LUNCH") lunch.classList.add("is-now");
   KIDS[kid].blocks.forEach(b=>{
-    const it={d:b[0],p:b[1],s:b[2],k:b[3],r:b[4]}; it.start=PT[it.p][0]; it.end=PT[it.p+it.s-1][1];
+    const it={d:b[0],p:b[1],s:b[2],k:b[3],r:b[4],t:b[5]}; it.start=PT[it.p][0]; it.end=PT[it.p+it.s-1][1];
     const e=add(`blk fam-${info(it.k).fam}`,it.d+2,`${it.p+1} / span ${it.s}`,blockHTML(it,it.s>1));
     if(S[it.k]) e.title=`${S[it.k].full}${S[it.k].code?"":" ("+it.k+")"}`;
     if(cur&&cur.d===it.d&&cur.p===it.p) e.classList.add("is-now");
@@ -325,8 +357,8 @@ function cardHTML(label,it,extra){
   if(it.k==="LUNCH") bits.push("11:35–12:35");
   else bits.push(`${fmt(it.start)}–${fmt(it.end)}`);
   if(it.r) bits.push(it.r);
-  if(S[it.k]&&S[it.k].teacher!=="Not listed") bits.push(S[it.k].teacher);
-  return `<div class="lab">${label}</div><div class="ttl">${f.short}</div><div class="meta">${bits.join(" · ")}</div>`;
+  const tn=teacherName(it.k); if(tn) bits.push(tn);
+  return `<div class="lab">${label}</div><div class="ttl">${f.short}</div><div class="meta">${bits.join(" · ")}</div>${withHTML(it.t)}`;
 }
 
 function firstClass(k,d){ return items(k,d).find(i=>!["FREE","NONE","LUNCH"].includes(i.k)); }
@@ -364,7 +396,7 @@ function renderSubjects(){
   const keys=Object.keys(S).filter(k=>used[k]).sort((a,b)=>order.indexOf(S[a].fam)-order.indexOf(S[b].fam));
   document.getElementById("subj").innerHTML=keys.map(k=>{
     const s=S[k];
-    return `<tr><td><span class="sw fam-${s.fam}"></span><span class="sn">${s.short}</span>${s.full!==s.short?`<span class="full">${s.full}</span>`:""}</td><td class="code">${s.code||k}</td><td>${s.teacher}</td><td class="room">${[...used[k]].join(", ")}</td></tr>`;
+    return `<tr><td><span class="sw fam-${s.fam}"></span><span class="sn">${s.short}</span>${s.full!==s.short?`<span class="full">${s.full}</span>`:""}</td><td class="code">${s.code||k}</td><td>${teacherName(k)||s.teacher}</td><td class="room">${[...used[k]].join(", ")}</td></tr>`;
   }).join("");
 }
 
@@ -375,12 +407,12 @@ function render(){
   document.getElementById("sub").textContent=`Room ${K.room} (group ${K.group}) with the ${K.el} element group`;
   ["fire","water"].forEach(k=>document.getElementById("tab-"+k).setAttribute("aria-selected",String(k===kid)));
   document.getElementById("semnote").textContent=kid==="fire"?"Friday's Seminar for 4/3 Fire is always in Room 222.":"Friday's Seminar uses Rooms 212, 213, 222 and 322. Check with the teacher which one is yours.";
+  document.getElementById("key").innerHTML=`<span>Each class shows who he studies with:</span>${withHTML("G")}${withHTML("R")}${withHTML("M:Two classes, split by element")}`;
   renderToday(); renderWeek(); renderDays(); renderSubjects();
 }
 
 document.querySelectorAll(".switch button").forEach(b=>b.addEventListener("click",()=>{
   kid=b.dataset.kid;
-  try{localStorage.setItem("tt-kid",kid);}catch(e){}
   render();
 }));
 render();
