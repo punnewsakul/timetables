@@ -1,0 +1,21 @@
+{
+  "name": "Fire & Water Timetables",
+  "short_name": "Timetable",
+  "description": "M.4 timetables for 4/3 Fire and 4/2 Water, Semester 2/2026",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#10141A",
+  "theme_color": "#10141A",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "4/3 Fire", "short_name": "Fire", "url": "./#fire", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] },
+    { "name": "4/2 Water", "short_name": "Water", "url": "./#water", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] }
+  ]
+}
